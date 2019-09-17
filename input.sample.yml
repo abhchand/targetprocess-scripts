@@ -1,0 +1,15 @@
+create_feature_entities:
+  UserStories:
+    - name: Test Story 1
+      project: CallRail
+      feature: Fake Feature
+      description: |
+        <!--markdown--># A Markdown Heading
+        A body
+
+    - name: Test Story 2
+      project: CallRail
+      feature: Fake Feature
+      description: |
+        <!--markdown--># Another heading
+        Another body

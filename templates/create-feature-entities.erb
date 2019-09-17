@@ -1,0 +1,11 @@
+Created:
+<% data.each do |datum| %>
+  <%
+    line = [
+      datum["ResourceType"].rjust(15, " "),
+      datum["Id"].to_s.rjust(15, " "),
+      truncate(datum["Name"], 40).rjust(50, " "),
+    ].join
+  %>
+  <%= line %>
+<% end %>

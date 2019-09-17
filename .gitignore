@@ -1,0 +1,6 @@
+screenshot-*.png
+.DS_Store
+*.yml
+log/*
+.ruby-version
+.env
