@@ -1,4 +1,4 @@
-# Github Scripts
+# TargetProcess Scripts
 
 A series of helpful scripts to automate common TargetProcess tasks.
 
