@@ -13,11 +13,7 @@ require_relative "multi_channel_logger"
 require "dotenv/load"
 require "active_support"
 require "active_support/core_ext/object/blank.rb"
-require "active_support/core_ext/time/zones"
-require "active_support/core_ext/numeric/time"
-
 require "httparty"
-
 require "yaml"
 
 class BaseTask
