@@ -43,6 +43,10 @@ class ListCurrentSprint < BaseTask
       end
     end
 
+    data.each do |team, assignables|
+      assignables.sort! { |a, b| a[:id] <=> b[:id] }
+    end
+
     puts render_template_with(data)
   end
 
