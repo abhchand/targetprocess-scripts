@@ -112,19 +112,10 @@ class CreateFeatureEntities < BaseTask
     post(path, payload)
   end
 
-  def parse_id_from(response)
-    response.first["Items"].first["Id"]
-  end
-
   def render_template_with(data)
     template = File.join(ROOT, "templates", "create-feature-entities.erb")
     ERB.new(File.read(template)).result(binding).tap do |output|
       output.gsub!(/\n{2,}/, "")
     end
-  end
-
-  def truncate(str, len)
-    return str if str.length < len
-    str[0, len - 3] + "..."
   end
 end

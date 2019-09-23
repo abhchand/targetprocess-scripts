@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+
+require_relative "../tasks/list_current_sprint"
+require "optparse"
+
+options = {}
+
+parser = OptionParser.new do |opts|
+  opts.banner = "\nUsage: bin/#{__FILE__} [options]"
+
+  opts.on(
+    "-tTEAMS",
+    "--teams=TEAM1,TEAM2,...",
+    "Comma delimited list of teams to run against (e.g. 'Some team,Another taem')."
+  ) do |t|
+    options[:teams] = t.split(",").map(&:strip)
+  end
+
+  options[:tp_org] = BaseTask::DEFAULT_TP_ORG
+  opts.on(
+    "-oTP_ORG",
+    "--tp-org=TP_ORG",
+    "TargetProcess organization for the project (default: '#{options[:tp_org]}')"
+  ) do |o|
+    options[:tp_org] = o
+  end
+
+  opts.on("-v", "--verbose", "Enable verbose output") do
+    options[:verbose] = true
+  end
+
+  opts.on("-h", "--help", "Prints this help") do
+    puts opts
+    exit
+  end
+end
+
+parser.parse!
+ListCurrentSprint.run!(options)

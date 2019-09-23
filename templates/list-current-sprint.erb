@@ -1,0 +1,7 @@
+<% data.each do |team, assignables| %>
+  ==== <%= team.upcase %>
+
+  <% assignables.each do |a| %>
+    <%= a[:id].to_s.rjust(10, ' ') %><%= truncate(a[:name], 60).rjust(70, ' ') %><%= a[:entity_type].rjust(20, ' ') %><%= a[:entity_state].rjust(20, ' ') %><%= a[:points].to_i.to_s.rjust(10, ' ') %><%= truncate(a[:devs], 30).rjust(40, ' ') %><% end %>
+
+<% end %>

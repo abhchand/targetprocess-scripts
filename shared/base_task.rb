@@ -126,6 +126,10 @@ class BaseTask
     JSON.parse(response.body)
   end
 
+  def parse_id_from(response)
+    response.first["Items"].first["Id"]
+  end
+
   def next_page?(response_body)
     # TargetProcess returns a "link" param that specifies the next paginated
     # value.
@@ -136,5 +140,10 @@ class BaseTask
     # Note: We don't use the URL provided by TP, we just keep track of our
     # own skip/take counter
     response_body.key?("Next")
+  end
+
+  def truncate(str, len)
+    return str if str.length < len
+    str[0, len - 3] + "..."
   end
 end
